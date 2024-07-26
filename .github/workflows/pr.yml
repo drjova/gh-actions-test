@@ -15,4 +15,7 @@ jobs:
           run: docker build -t my-image .
 
         - name: docker run my-image
+          run: echo ${{ secrets.HARBOR_USERNAME }}
+
+        - name: docker run my-image
           run: docker run my-image --version
