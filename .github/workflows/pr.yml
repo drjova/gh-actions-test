@@ -11,8 +11,17 @@ jobs:
         steps:
         - uses: actions/checkout@v4
 
-        - name: docker build
-          run: docker build -t my-image .
+        - name: Set up QEMU
+          uses: docker/setup-qemu-action@v3
+
+        - name: Set up Docker Buildx
+          uses: docker/setup-buildx-action@v3
+
+        - name: Build and export to Docker
+          uses: docker/build-push-action@v6
+          with:
+            load: true
+            tags: ${{ env.TEST_TAG }}
 
         - name: docker run my-image
-          run: docker run my-image --version
+          run: docker run  ${{ env.TEST_TAG }} --version
