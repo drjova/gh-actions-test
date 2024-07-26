@@ -6,8 +6,8 @@ on:
       - main
 
 env:
-  TEST_TAG: cern-sis/test:latest
-  LATEST_TAG: cern-sis/test:latest
+  TEST_TAG: registry.cern.ch/cern-sis/test:latest
+  LATEST_TAG: registry.cern.ch/cern-sis/test:latest
 
 jobs:
   docker:
